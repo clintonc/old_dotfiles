@@ -5,9 +5,9 @@
 (setq default-input-method "TeX")
 
 ;; Set up file associations here
-(add-to-list 'auto-mode-alist '("\\.org$'" . org-mode))
-(add-to-list 'auto-mode-alist '("\\.xml$'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.docbook$'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.docbook$" . nxml-mode))
 
 ;; Major mode hooks
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
@@ -18,11 +18,13 @@
 (add-hook 'LaTeX-mode-hook 'latex-math-mode)
 (add-hook 'LaTeX-mode-hook 'reftex-mode)
 
-(add-hook 'nxml-mode-hook '(lambda () (setq nxml-slash-auto-complete-flag t)))
+(add-hook 'nxml-mode-hook 
+	  '(lambda () (setq nxml-slash-auto-complete-flag t)))
 
 ;; Helpful functions/macros
 (fset 'insert-date
    "\C-u\C-[!date '+%l:%M%P on %A, %D'\C-m\C-e\C-m")
+(global-set-key (kbd "C-c d") 'insert-date)
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
